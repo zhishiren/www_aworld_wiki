@@ -1,0 +1,328 @@
+﻿@charset "UTF-8";
+/* ------------------------------------------这里是基本的边距和颜色设置 */
+.margin0px{margin: 0px;}
+.bgcolor_FC{background:#FCFCFC;}
+/* .bgcolor_FF{background:#FFFFFF;} */
+/* 这是搜索框的宽度设置 */
+.width250px{width: 250px;}
+.juzhong{text-align: center;}
+
+/* ------------------------------------------这里是字体大小的设置，默认微软雅黑/黑色 */
+.font22px{font-size:22px;}
+.font21px{font-size:21px;}
+.font20px{font-size:20px;}
+.font19px{font-size:19px;}
+
+.font18px{font-size:18px;}
+.font18px_black{font-size:18px;color:black;}
+.font18px_gray{font-size:18px;color: grey;}
+
+.font17px{font-size:17px;}
+.font16px{font-size:16px;}
+/* 这个绿色是用于知识点热度数据展示 */
+.font17px_green{font-size:17px;color:green;}
+
+.font19px_tuichu{
+	font-size:19px;
+	width:120px;
+	/* float:right; */
+	text-align: center;
+	display: inline-block;
+	margin-top: 5px;
+}
+
+/* 这是用于一些循环列表上面一点的边距10px */
+.margin10px{ margin:10px;}
+.br10px17px{margin-top:10px;font-size: 17px;}
+.br15px17px{margin-top:15px;font-size: 17px;}
+.button0px{font-size:18px;padding-bottom:0px;}
+
+/* ---------------------------------------------------------这里是a标签链接的个性设置*/
+
+.a_noline{text-decoration: none;cursor:pointer;color:white;}	
+
+.a_white{text-decoration: none;cursor:pointer;color:white;}
+.a_white:hover{color:orange;}
+
+.a_grey{text-decoration: none;cursor:pointer;color:grey;}
+.a_grey:hover{color:orange;}
+
+.a_brown{text-decoration: none;cursor:pointer;color:brown;}
+.a_brown:hover{color:orange;}
+
+.a_black{text-decoration: none;cursor:pointer;color:black;}
+.a_black:hover{color:orange;}
+
+.sousuo_alink{font-size:22px;color:black;}
+.sousuo_alink:hover{color:orange;}
+
+/* --------------------------------------------------------这里是页面头部相关元素的设计 */
+.logo{
+	height: 40px;
+	font-size:100%;
+	line-height: 40px;
+	color:#FFF;
+	background-color: #708090;
+	text-align: left;
+	padding: 0;
+}
+
+
+
+/* -----------------------------------------------------这里是页面右侧相关元素的设计 */
+
+.youcelan{
+	/* background:#FCFCFC; */
+	width:120px;
+	height:600px;
+	position: fixed;
+	top:50px;
+	right: 0px;
+}
+
+.square_right{
+	height: 56px;
+	width:36px;
+	font-size:30px;
+	text-align: center;
+	line-height:56px;
+}	
+
+
+/* -----------------------------------------------------这里是主体页面部分的设计 */
+
+/* 这里是主体页面左侧导航的特色设计 */
+.height_x00px{height: 600px;}
+.bgcolor_menu_FC{background:#FCFCFC;border: 0px;}
+
+/* 这里是主体页面中间的循环列表区域的特色设计 */
+.section_xh{font-size:16px;color: black;min-height: 300px;padding-top: 10px;}
+
+/* -----------------------------------------------------这里是-用户主页-部分的设计 */
+.section_userinfo{height:250px;padding-left:10px;}
+
+
+/* -----------------------------------------------------这里是页面总体的的设计 */
+
+body > .el-container {margin-bottom: 40px;}
+.el-container:nth-child(5) .el-aside,
+.el-container:nth-child(6) .el-aside {line-height: 260px;}
+.el-container:nth-child(7) .el-aside {line-height: 320px;}
+.el-col {min-height: 1px}  
+/* 这是让el-col为空的时候，仍然显示 */
+#zhutiye{margin-bottom:0px;margin-top: 0px;}
+
+
+
+/* -----------------------------------------------------这里是一些小附件的设计 */
+/* 这里是极简输入框的样式，输入框的宽度是250px，字体大小是22px */
+.input_jian{					
+	border:none;
+	/* border-radius:0; */
+	border-bottom:black 1px solid;
+	/* box-shadow:0; */
+	outline:none;
+	/* text-decoration: none; */
+}
+
+.sousuo_alink{font-size:22px;color:black;}
+.sousuo_alink:hover{color:orange;}
+.sousuolan{
+			width:250px;
+			border:none;
+			/* border-radius:0; */
+			border-bottom:black 1px solid;
+			/* box-shadow:0; */
+			outline:none;
+			/* text-decoration: none; */
+			font-size:22px;
+}
+.loadingstyle{font-size:30px;color:grey;}
+
+/* 这是限制发言内容长度的设置 */
+.fayanlimit{
+	color:brown;
+	max-width:600px;
+	max-height:27px;
+	float:left;
+	overflow:hidden;
+	white-space:nowrap;
+	text-overflow:ellipsis;
+	-o-text-overflow:ellipsis;}
+
+/* 这是一般限制内容长度的设置 */
+.spanlimit{
+	display: inline-block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	-o-text-overflow: ellipsis;
+	white-space:nowrap;
+	max-width:600px;
+	max-height:21px;
+	font-size: 18px;
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+}
+
+/* 这是分割线的设计 */
+.el-divider--horizontal{
+	margin: 0px 0;
+	background: 0 0;
+	border-top: 1px solid #e8eaec;
+} 
+
+
+/* 这个属性是用于网站介绍中各个豆腐块文字的换行外观 */
+.huanhang{
+	word-wrap: break-word;
+	word-break: break-all;
+	overflow: hidden;
+	padding:10px;
+}
+
+.pinglunlan{
+	width:100%;
+	border:none;
+	border-radius:0;
+	border-bottom:#8D8D8D 1px solid;
+	box-shadow:0;
+	outline:none;
+	text-decoration: none;
+	font-size:20px;
+}
+
+
+/* 以下是新增之后的新纪录闪烁效果 */
+@keyframes blink{0%{opacity: 1;}100%{opacity: 0;}}
+/* 添加兼容性前缀 */
+@-webkit-keyframes blink{0%{opacity: 1;}100%{opacity: 0;}}
+@-moz-keyframes blink{0%{opacity: 1;}100%{opacity: 0;}}
+@-ms-keyframes blink{0%{opacity: 1;}100%{opacity: 0;}}
+@-o-keyframes blink{0%{opacity: 1;}100%{opacity: 0;}}
+.blinkyellow{
+    background-color: yellow;
+    animation: blink 1s linear infinite;
+    /* 其它浏览器兼容性前缀 */
+    -webkit-animation: blink 1s linear infinite;
+    -moz-animation: blink 1s linear infinite;
+    -ms-animation: blink 1s linear infinite;
+    -o-animation: blink 1s linear infinite;
+}
+
+
+
+/* -----------------------------------------------------这里是暂时用不到的设计 */
+.copyright_bar {
+			color: #333;
+			text-align: center;
+			line-height: 40px;
+			height: 40px;
+			position: fixed;
+			bottom: 0px;
+			}
+
+/* -----------------------------------------------------这是修改elementui的内部封装的组件 */
+/* 这是修改弹出对话框的空白部分 */
+.el-dialog__body{padding-top:0px;}
+
+
+
+.my-icon {  
+	/* 其他样式 */  
+	vertical-align: middle;
+	font-size: 18px; /* 或者其他你想要的像素值 */  
+
+  }  
+  .my-icon:hover {  
+	cursor: pointer; /* 这会使鼠标指针在悬停时变为手形 */  
+	color: orange; 
+  }  
+
+  .custom-button {  
+	/* 增大文字大小 */  
+	font-size: 18px; /* 或者其他你想要的像素值 */  
+	
+	/* 移除内边距 */  
+	padding: 0;  
+	
+	/* 如果需要的话，也可以移除按钮的外边距 */  
+	margin: 0;  
+  }  
+
+  .menu-item {  
+	font-size: 20px;  
+	color: gray !important;
+  }  
+  .menu-item18 {  
+	font-size: 18px;  
+	/* color: gray !important; */
+	text-align: center;
+	
+  }  
+
+  .firstrow{font-size:18px;text-align:left;padding-top:10px;}
+
+
+
+
+ 
+
+
+  .el-form-item /deep/ .el-form-item__label {  
+	font-size: 18px; /* 或其他你想要的字体大小 */  
+  }  
+  
+  .el-popper.is-customized {
+	/* Set padding to ensure the height is 32px */
+	padding: 6px 12px;
+	font-size: 18px; /* 或其他你想要的字体大小 */  
+	background: linear-gradient(90deg, rgb(159, 229, 151), rgb(204, 229, 129));
+  }
+  
+  .el-popper.is-customized .el-popper__arrow::before {
+	background: linear-gradient(45deg, #b2e68d, #bce689);
+	right: 0;
+  }
+
+  .quote-container {  
+	display: inline-block; /* 或者使用 display: flex; */  
+	vertical-align: top; /* 如果需要的话，可以调整垂直对齐 */  
+	padding-top: 5px;
+}  
+
+.quote-mark {  
+	font-size: 25px; /* 调整引号大小 */  
+	font-family:'weiruanyahei';
+	font-weight: bolder;
+}  
+
+
+.grey-link,
+.grey-link:visited,
+.grey-link:active,
+.grey-link:hover {
+  color: #333 !important;
+}
+
+
+
+ /* 以下是手机端页面的设置 */
+ .mobile-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow-y: auto;
+    background-color: #f0f0f0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+	min-height: 100vh; /* 或者设置一个固定的高度，确保内容超出时可以滚动 */  
+	padding-bottom: 60px; /* 根据需要调整，为底部元素留出空间 */  
+	box-sizing: border-box; /* 确保padding不会增加元素的总高度 */  
+  }

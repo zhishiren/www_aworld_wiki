@@ -1,360 +1,220 @@
 <template>
-    <div class="login">
-      <HelloLogout></HelloLogout>
-    <el-menu  
-        :default-active=activeIndex
-        class="el-menu-demo"  
-        mode="horizontal"  
-        :ellipsis="false"  
-        @select="handleSelect"  
-        style="margin-left: 120px;"
-        >  
-        <el-menu-item index="0" class="menu-item">新闻动态</el-menu-item>  
-        <el-menu-item index="1" class="menu-item">公社大厅</el-menu-item>  
-        <el-menu-item index="2" class="menu-item">朋友圈子</el-menu-item>  
-        <el-menu-item index="3" class="menu-item">关注收藏</el-menu-item>  
-        <el-menu-item index="4" class="menu-item">我的主页</el-menu-item>  
-        <el-menu-item index="5" class="menu-item">共享服务</el-menu-item>  
-        <el-menu-item index="6" class="menu-item">本站介绍</el-menu-item>  
-        <el-menu-item index="7" class="menu-item">安批百科</el-menu-item>  
-    </el-menu>  
-   
-    <el-container>  
-    <el-main style="padding: 0px;" >  
-        <el-row style="width: 960px;"  v-if="activeIndex === '0'">  
-              <el-col :span="3">  
-                  <el-menu
-                  :default-active=activeSubIndex0
-                  class="el-menu-vertical-demo"
-                  @select="subhandleSelect0"  
-                  >
-                    <el-menu-item index="01" class="menu-item18">
-                      <span>我要发布</span>
-                    </el-menu-item>
-                    <el-menu-item index="02" class="menu-item18">
-                      <span>用户动态</span>
-                    </el-menu-item>
-                    <el-menu-item index="03" class="menu-item18">
-                      <span>内容动态</span>
-                    </el-menu-item>
-                    <el-menu-item index="04" class="menu-item18">
-                      <span>互动信息</span>
-                    </el-menu-item>
-                    <el-menu-item index="05" class="menu-item18">
-                      <span>系统通知</span>
-                    </el-menu-item>
-                    <el-menu-item index="06" class="menu-item18">
-                      <span>历史动态</span>
-                    </el-menu-item>
-                  </el-menu>
-              </el-col>  
-              <el-col :span="21"  v-if="activeSubIndex0 === '01'">  
-                  我要发布的内容
-              </el-col>  
-              <el-col :span="21" v-if="activeSubIndex0 === '02'">  
-                  用户动态
-              </el-col>  
-              <el-col :span="21" v-if="activeSubIndex0 === '03'">  
-                内容动态
-              </el-col>  
-              <el-col :span="21" v-if="activeSubIndex0 === '04'">  
-                互动信息
-              </el-col>  
-              <el-col :span="21" v-if="activeSubIndex0 === '05'">  
-                系统通知
-              </el-col>  
-              <el-col :span="21" v-if="activeSubIndex0 === '06'">  
-                历史动态
-              </el-col>  
-        </el-row>  
+  <div class="full-bg-container">  
+    <div class="background-image"></div>  
+    <div class="content">  
+    <el-row style=" margin-top: 120px;">  
+      <el-col :span="6">  
+        <br>
+        <el-menu
+          :default-active="activeMenu"
+          @select="handleSelect"
+          class="el-menu-vertical-demo"
+          @open="handleOpen"
+          @close="handleClose"
+          style="border:0px;" 
+          background-color="rgba(0,0,0,0)" 
+          text-color="black" 
+          active-text-color="#FF8000">
+          <el-menu-item index="2" style="font-size: 22px;">
+            <el-tooltip content="<h2>Log in</h2>" raw-content>账号登录</el-tooltip> 
+          </el-menu-item>
+          <el-menu-item index="1" style="font-size: 22px;">
+            <span>通知公告</span>
+          </el-menu-item>
+          <el-menu-item index="3" style="font-size: 22px;">
+            <el-tooltip content="<h2>Sign up</h2>" raw-content>新人注册</el-tooltip> 
+          </el-menu-item>
+        </el-menu>
+      </el-col>   
+      <el-col :span="18" style="font-size: 22px;font-style: 微软雅黑;">  
 
-        <el-row style="width: 960px;"  v-if="activeIndex === '1'">  
-              <el-col :span="3">  
-                  <el-menu
-                  :default-active=activeSubIndex1
-                  class="el-menu-vertical-demo"
-                  @select="subhandleSelect1"  
-                  >
-                    <el-menu-item index="11" class="menu-item18">
-                      <span>公议事项</span>
-                    </el-menu-item>
-                    <el-menu-item index="12" class="menu-item18">
-                      <span>公社架构</span>
-                    </el-menu-item>
-                    <el-menu-item index="13" class="menu-item18">
-                      <span>协会列表</span>
-                    </el-menu-item>
-                    <el-menu-item index="14" class="menu-item18">
-                      <span>公社成员</span>
-                    </el-menu-item>
-                    <el-menu-item index="15" class="menu-item18">
-                      <span>任务列表</span>
-                    </el-menu-item>
-                  </el-menu>
-              </el-col>  
-              <el-col :span="21"  v-if="activeSubIndex1 === '12'">  
-                  这是树状公社机构列表
-              </el-col>  
-              <el-col :span="21" v-if="activeSubIndex1 === '13'">  
-                  这是协会列表
-              </el-col>  
-              <el-col :span="21" v-if="activeSubIndex1 === '11'">  
-                  这是你参加的公社和协会的公共事项
-              </el-col>  
-              <el-col :span="21" v-if="activeSubIndex1 === '14'">  
-                  这是所有的公社成员信息
-              </el-col>  
-              <el-col :span="21" v-if="activeSubIndex1 === '15'">  
-                  这是你的任务列表
-              </el-col>  
-        </el-row>  
+        <div class="input_area">
+          <div v-show="activeMenu === '1'" >
+              <br>
+              <p>-----Public Notice-----</p>
+              <div>QQgroup:771722807</div>
+              <div>(管理面板的导入信息)</div>
+              <div>(管理面板的导入信息)</div>
+              <div>(管理面板的导入信息)</div>
+              <div>(管理面板的导入信息)</div>
+          </div>
+          <div v-show="activeMenu === '2'">
+            <br>
+            <input id="name0" v-model="name0" autocomplete="off" type="text" placeholder="你的用户名,your username" class="input_dengluye">
+            <br><br><br>
+            <input id="password0" type="password"  v-model="password0" placeholder="你的密码,your password" class="input_dengluye">
+            <br>
+            <span v-if="error0" class="font18px" style="color:orange">{{error0}}</span>
+            <span v-if="message0" class="font18px" style="color:orange">{{message0}}</span>
+            <br><br>
+            <el-row>
+                <el-button class="commmit-button" @click="submit0" size="medium" round>确定</el-button>
+            </el-row>
 
+          </div>
+          <div v-show="activeMenu === '3'">
+            <br>
+            <input id="name1" v-model="name1" autocomplete="off" type="text" placeholder="新建用户名,create username" class="input_dengluye" @blur="check_name_existed">
+            <br><br>
+            <input id="password1"  type="password"  v-model="password1" placeholder="设置密码,create password" class="input_dengluye">
+            <br><br>
+            <input id="password2" type="password"  v-model="password2" placeholder="再输密码,password again" class="input_dengluye">
+            <br>
+            <h4 v-if="error1" style="color:orange">{{error1}}</h4>
+            <h4 v-if="message1" style="color:orange">{{message1}}</h4>
 
-        <el-row style="width: 960px;"  v-if="activeIndex === '2'">  
-              <el-col :span="3">  
-                  <el-menu
-                  :default-active=activeSubIndex1
-                  class="el-menu-vertical-demo"
-                  @select="subhandleSelect1"  
-                  >
-                    <el-menu-item index="21" class="menu-item18">
-                      <span>公议事项</span>
-                    </el-menu-item>
-                    <el-menu-item index="22" class="menu-item18">
-                      <span>公社架构</span>
-                    </el-menu-item>
-                    <el-menu-item index="23" class="menu-item18">
-                      <span>协会列表</span>
-                    </el-menu-item>
-                    <el-menu-item index="24" class="menu-item18">
-                      <span>公社成员</span>
-                    </el-menu-item>
-                    <el-menu-item index="25" class="menu-item18">
-                      <span>任务列表</span>
-                    </el-menu-item>
-                  </el-menu>
-              </el-col>  
-              <el-col :span="21"  v-if="activeSubIndex1 === '22'">  
-                  这是树状公社机构列表
-              </el-col>  
-              <el-col :span="21" v-if="activeSubIndex1 === '23'">  
-                  这是协会列表
-              </el-col>  
-              <el-col :span="21" v-if="activeSubIndex1 === '21'">  
-                  这是你参加的公社和协会的公共事项
-              </el-col>  
-              <el-col :span="21" v-if="activeSubIndex1 === '24'">  
-                  这是所有的公社成员信息
-              </el-col>  
-              <el-col :span="21" v-if="activeSubIndex1 === '25'">  
-                  这是你的任务列表
-              </el-col>  
-        </el-row>  
+            <br>
+            <el-row>
+                <el-button  @click="submit1" class="commmit-button" size="medium" round>确定</el-button>
+            </el-row>
+          </div> 
 
-        <el-row style="width: 960px;" v-if="activeIndex === '6'">
-            <el-col :span="3">
-              <el-menu
-                :default-active=activeSubIndex6
-                class="el-menu-vertical-demo"
-                @select="subhandleSelect6"
-              >
-                <el-menu-item index="61" class="menu-item18">
-                  <span>公社实况</span>
-                </el-menu-item>
-                <el-menu-item index="62" class="menu-item18">
-                  <span>西撒地区</span>
-                </el-menu-item>
-                <el-menu-item index="63" class="menu-item18">
-                  <span>设计理念</span>
-                </el-menu-item>
-                <el-menu-item index="64" class="menu-item18">
-                  <span>功能介绍</span>
-                </el-menu-item>
-              </el-menu>
-          </el-col>
-          <el-col :span="21" v-if="activeSubIndex6 === '62'">
-            这是树状公社机构列表
-          </el-col>
-          <el-col :span="21" v-if="activeSubIndex6 === '63'">
-            这是协会列表
-          </el-col>
-          <el-col :span="21" v-if="activeSubIndex6 === '61'">
-            这是你参加的公社和协会的公共事项
-          </el-col>
-          <el-col :span="21" v-if="activeSubIndex6 === '64'">
-            这是所有的公社成员信息
-          </el-col>
-      </el-row>
-
-        <el-row style="width: 960px;"  v-if="activeIndex === '7'">  
-              <el-col :span="3">  
-                  <el-menu
-                  :default-active=activeSubIndex7
-                  class="el-menu-vertical-demo"
-                  @select="subhandleSelect7"  
-                  >
-                    <el-menu-item index="71" class="menu-item18">
-                      <span>词条排行</span>
-                    </el-menu-item>
-                    <el-menu-item index="72" class="menu-item18">
-                      <span>恶人榜单</span>
-                    </el-menu-item>
-                    <el-menu-item index="73" class="menu-item18">
-                      <span>旧闻跟踪</span>
-                    </el-menu-item>
-                    <el-menu-item index="74" class="menu-item18">
-                      <span>知识地图</span>
-                    </el-menu-item>
-                  </el-menu>
-              </el-col>  
-              <el-col :span="21"  v-if="activeSubIndex7 === '72'">  
-                
-              </el-col>  
-              <el-col :span="21" v-if="activeSubIndex7 === '73'">  
-                  这是协会列表
-              </el-col>  
-              <el-col :span="21" v-if="activeSubIndex7 === '71'">  
-                  这是你参加的公社和协会的公共事项
-              </el-col>  
-              <el-col :span="21" v-if="activeSubIndex7 === '74'">  
-                  这是所有的公社成员信息
-              </el-col>  
-        </el-row>  
-
-
-
-
-    </el-main>
-
-
-    <el-aside class="aside-left">  
-            <el-button class="flat-button" @click="handleClick('search')">搜</el-button>  
-            <el-button class="flat-button" @click="handleClick('ask')">问</el-button>  
-            <el-button class="flat-button" @click="handleClick('debate')">辩</el-button>  
-            <el-button class="flat-button" @click="handleClick('donate')">捐</el-button>  
-            <el-button class="flat-button" @click="handleClick('chat')">聊</el-button>  
-            <el-button class="flat-button" @click="handleClick('chat')">AI</el-button>  
-            <el-button class="flat-button" @click="handleClick('chat')">邮</el-button>  
-            <el-button class="flat-button" @click="handleClick('chat')">播</el-button>  
-    </el-aside>  
-</el-container>
-
-
-   
+        </div>
+      </el-col>   
+ 
+    </el-row> 
+    </div>  
   </div>  
-</template>  
-  
-<script>  
-import { ref } from 'vue'; 
-// import { ElMenu, ElMenuItem } from 'element-plus';  
-// import 'element-plus/lib/theme-chalk/index.css';  
-import HelloLogout from '../components/CommonComp/HelloLogout.vue';
-  
-export default {  
+</template>
 
-  components: {
-    HelloLogout
-  },
+<script setup>  
+      import { ref } from 'vue';  
+      import axios from 'axios';  
 
-methods: {  
-    handleClick(action) {  
-      console.log(action);  
-      window.open('/' + action, '_blank');
-    },  
+      const name0 = ref('');  
+      const password0 = ref('');  
+      const error0 = ref('');  
+      const message0 = ref('');  
+      // 以上是登录的配置
+
+      const name1 = ref('');  
+      const password1 = ref('');  
+      const password2 = ref('');  
+      const error1 = ref('');  
+      const message1 = ref('');  
+      // 以上是注册的配置
+
+      const activeMenu = ref('2');
+
+      const submit1 = async () => {
+        if (!name1.value || !password1.value || !password2.value || password1.value !== password2.value) {  
+          // 如果任一密码为空或不相等，设置错误消息并返回  
+          error1.value = '输入不为空且密码须一致'; 
+          message1.value = '';  
+          return; // 停止执行后续代码  
+        }  
+
+        try {
+          const response = await axios.post('https://www.aworld.wiki/api/iteminfo/register/', {
+            username: name1.value,
+            password1: password1.value,
+            password2: password2.value,
+          });
+          message1.value = response.data.message;
+          error1.value = '';
+          // localStorage.setItem('username', name1.value); 
+          // ceshi.value = localStorage.getItem('username');
+          localStorage.setItem('username', name1.value);
+          localStorage.setItem('userid', response.data.userid);
+          name0.value = name1.value;
+        } catch (e) {
+          error1.value = e.response.data.error;
+          message1.value = '';
+        }
+      };
 
 
-  }, 
-setup() {  
-    const activeIndex = ref('0'); // 默认选中新闻动态  
-    const activeSubIndex0 = ref('01'); 
-    const activeSubIndex1 = ref('11'); 
-    const activeSubIndex6 = ref('61'); 
-    const activeSubIndex7 = ref('71'); 
-  
-    const handleSelect = (index) => {  
-      activeIndex.value = index;  
-    };  
-  
-    const subhandleSelect0 = (index) => {  
-      activeSubIndex0.value = index;  
-    };   
+      const submit0 = async () => {
+        if (!name0.value || !password0.value ) {  
+          // 如果任一密码为空或不相等，设置错误消息并返回  
+          error0.value = '输入不为空';  
+          message0.value = '';  
+          return; // 停止执行后续代码  
+        }  
 
-    const subhandleSelect1 = (index) => {  
-      activeSubIndex1.value = index;  
-    };       
+        try {
+          const response = await axios.post('https://www.aworld.wiki/api/iteminfo/login/', {
+            username: name0.value,
+            password0: password0.value,
+          });
+          message0.value = response.data.message;
+          error0.value = '';
+          localStorage.setItem('username', name0.value); 
+          localStorage.setItem('userid', response.data.userid);
+          // ceshi.value = localStorage.getItem('username');
+          window.location.href = '/';
+
+        } catch (e) {
+          error0.value = e.response.data.error;
+          message0.value = '';
+        }
+      };
+        
+
     
-    const subhandleSelect6 = (index) => {  
-      activeSubIndex6.value = index;  
-    };   
+      const handleOpen = (key, keyPath) => {
+        console.log('Menu Opened:', key, keyPath);
+      };
+      const handleClose = (key, keyPath) => {
+        console.log('Menu Closed:', key, keyPath);
+      };
+      const handleSelect = (key) => {
+        activeMenu.value = key;
+      };
+  
 
-    const subhandleSelect7 = (index) => {  
-      activeSubIndex7.value = index;  
-    };   
-
-    return {  
-      activeIndex,  
-      activeSubIndex0,
-      activeSubIndex1,
-      activeSubIndex6,
-      activeSubIndex7,
-      handleSelect,  
-      subhandleSelect0,
-      subhandleSelect1,
-      subhandleSelect6,
-      subhandleSelect7,
-    };  
-  },  
-};  
 </script>
 
-<style>  
-.login{width: 1280px;  
-      margin: 0 auto;      
-    }
 
-.header{
-  width: 1280px;background-color:#708090;;height: 40px;color: white;
-  font-size:40px;line-height: 40px;text-align: left;padding: 0;
-}
+<style scoped>  
 
+          
 
-
-.menu-item {  
-  font-size: 20px;  
-  color: gray !important;
-}  
-.menu-item18 {  
-  font-size: 18px;  
-  /* color: gray !important; */
-  text-align: center;
-}  
-.el-menu-vertical-demo {  
-  border-right: none !important;  
-}
-.aside-left {  
-  display: flex;  
-  flex-direction: column;  
-  align-items: flex-end;  
-  justify-content: space-between;  
-  width: 120px;
-  height: 400px;
-
+.full-bg-container {  
+  position: relative;  
+  width: 100%; 
+  overflow: hidden;  
+/* 确保内容不会溢出 */  
+   /* 设置容器高度为视口高度 */  
 }  
   
-.flat-button {  
-  margin-bottom: 0px !important;
-  padding: 15px;  
-  height: 56px;  
-  border: none;  
-  border-radius: 4px;  
-  background-color: #fff;  
-  color: #666;  
-  font-size: 25px;  
-  cursor: pointer; 
+.background-image {  
+  position: absolute;
+  background-image: url('https://aworld-1302616346.cos.ap-hongkong.myqcloud.com/static_pic/aworldwiki_login.jpg');  
+  /* background-image: url('https://z2020-1302616346.cos.ap-hongkong.myqcloud.com/zhishiren_info_white6.jpg');   */
+  background-position: center center;
+  background-repeat: no-repeat;  
+  background-size: cover; 
+  width: 1280px;
+  height: 100%;
+  z-index: -1; /* 确保背景图片在最底层 */  
 }  
   
-.flat-button:hover {  
-  background-color: #f2f2f2;  
+.content {  
+  position: relative;  
+  z-index: 999; /* 确保内容悬浮在背景图片之上 */  
+  padding: 10px; /* 可以根据需要添加内边距 */  
+  color: black; /* 设置文字颜色，确保在背景图片上可见 */  
+  text-align: left;
+  height: 800px;
+  width: 450px;
 }  
+
+.commmit-button{
+  margin-left:70px;font-size:20px;background-color:rgba(0,0,0,0);color:black;border-color:grey;
+}
+
+.input_area{height:100%;width:auto;color: black;text-align:left;margin-left: 50px;}
+.input_dengluye{
+  background-color:rgba(0,0,0,0);
+  border-top:0px;
+  border-left:0px;
+  border-right:0px;
+  border-color:grey;
+  height: 30px;
+  width:100%;
+  color:black;
+  font-size: 20px;
+  outline:none;}
+
 </style>
-
